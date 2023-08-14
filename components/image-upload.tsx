@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { CldUploadButton } from "next-cloudinary";
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { CldUploadButton } from 'next-cloudinary'
 
-import { Button } from "@/components/ui/button";
-import { ImageIcon, X } from "lucide-react";
+import { Button } from '@/components/ui/button'
+import { ImageIcon, X } from 'lucide-react'
 
 interface ImageUploadProps {
-  value: string;
-  onChange: (src: string) => void;
-  disabled?: boolean;
+  value: string
+  onChange: (src: string) => void
+  disabled?: boolean
 }
 
 export const ImageUpload = ({
@@ -18,21 +18,24 @@ export const ImageUpload = ({
   onChange,
   disabled,
 }: ImageUploadProps) => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    setIsMounted(true)
+  }, [])
 
   if (!isMounted) {
-    return false;
+    return false
   }
 
   return (
     <div className="space-y-4 w-full flex flex-col justify-center items-center">
-      
-      <CldUploadButton options={{ maxFiles: 1 }} onUpload={(result: any) => onChange(result.info.secure_url)} uploadPreset="t4drjppf">
-        <div 
+      <CldUploadButton
+        options={{ maxFiles: 1 }}
+        onUpload={(result: any) => onChange(result.info.secure_url)}
+        uploadPreset="kq9ov1wq"
+      >
+        <div
           className="
             p-4 
             border-4 
@@ -52,12 +55,12 @@ export const ImageUpload = ({
             <Image
               fill
               alt="Upload"
-              src={value || "/placeholder.svg"}
+              src={value || '/placeholder.svg'}
               className="rounded-lg object-cover"
             />
           </div>
         </div>
       </CldUploadButton>
     </div>
-  );
-};
+  )
+}
