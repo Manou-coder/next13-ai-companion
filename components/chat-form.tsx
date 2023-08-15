@@ -1,17 +1,22 @@
-"use client";
+'use client'
 
-import { ChatRequestOptions } from "ai";
-import { SendHorizonal } from "lucide-react";
-import { ChangeEvent, FormEvent } from "react";
+import { ChatRequestOptions } from 'ai'
+import { SendHorizonal } from 'lucide-react'
+import { ChangeEvent, FormEvent } from 'react'
 
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 
 interface ChatFormProps {
-  input: string;
-  handleInputChange: (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => void;
-  onSubmit: (e: FormEvent<HTMLFormElement>, chatRequestOptions?: ChatRequestOptions | undefined) => void;
-  isLoading: boolean;
+  input: string
+  handleInputChange: (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => void
+  onSubmit: (
+    e: FormEvent<HTMLFormElement>,
+    chatRequestOptions?: ChatRequestOptions | undefined
+  ) => void
+  isLoading: boolean
 }
 
 export const ChatForm = ({
@@ -21,7 +26,10 @@ export const ChatForm = ({
   isLoading,
 }: ChatFormProps) => {
   return (
-    <form onSubmit={onSubmit} className="border-t border-primary/10 py-4 flex items-center gap-x-2">
+    <form
+      onSubmit={onSubmit}
+      className="border-t border-primary/10 py-4 flex items-center gap-x-2"
+    >
       <Input
         disabled={isLoading}
         value={input}
